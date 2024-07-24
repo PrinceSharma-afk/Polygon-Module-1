@@ -1,11 +1,16 @@
 const { ethers } = require("hardhat");
+const tokenContractJSON = require("../artifacts/contracts/MyNFT.sol/MyNFT.json");
+const contractAddress = "0x45B070E0E23A9EE49CCeC87a2709cD063255F43b";
+const tokenABI = tokenContractJSON.abi;
+const walletAddress = "0xbEEfC684cE2a427D76ED212d7AbBe170Fa7455E7";
 
 async function main() {
+    const provider = ethers.getDefaultProvider(process.env.AMOY_URL);
     const [deployer] = await ethers.getSigners();
-    const MyNFT = await ethers.getContractFactory("MyNFT");
-    const myNFT = await MyNFT.attach("0x79cBb5F6C7B8712a32A9602BC11EBa596Dc2ad5b");
 
-    const balance = await myNFT.balanceOf("0x0ab671A61d1Ac32df09739A4E0111f5bcB921306");
+    const myNFT = new ethers.Contract(contractAddress, tokenABI, provider);
+
+    const balance = await myNFT.balanceOf(walletAddress);
     console.log(`Balance of recipient: ${balance.toString()}`);
 }
 
