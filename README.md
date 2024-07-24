@@ -1,8 +1,8 @@
 # MyNFT Smart Contract
-A Solidity smart contract for minting and managing NFTs with scripts such as batchmint,BalanceOf and TransferAll so that we can deploy NFT collection on ETH block.
+A Solidity smart contract for minting and managing NFTs with scripts such as batchmint,BalanceOf,Deposit and TransferAll so that we can deploy NFT collection on ETH block.
 
 ## Description
-The MyNFT project involves creating an ERC721-based Non-Fungible Token (NFT) contract using the OpenZeppelin library. The contract allows the owner to mint NFTs with custom token URIs and provides functionality to retrieve prompt descriptions associated with each token. The project is designed to be deployed and tested on the Sepolia test network.
+The MyNFT project involves creating an ERC721-based Non-Fungible Token (NFT) contract using the OpenZeppelin library. The contract allows the owner to mint NFTs with custom token URIs and provides functionality to retrieve prompt descriptions associated with each token. The project is designed to be deployed and tested on the Sepolia test network.Furthermore the project ddeposits NFT from Sepolia to Amoy and then check the Balance at end.
 
 ## Getting Started
 1.Installing
@@ -29,9 +29,11 @@ npx hardhat run scripts/DeployMyNFT.js --network sepolia
 3. Batch Mint NFTs:
 npx hardhat run scripts/BatchMinter.js --network sepolia
 4. Transfer All NFTs:
-npx hardhat run scripts/transferAll.js --network sepolia
-5. Check Balance Of NFTs:
-npx hardhat run scripts/BalanceOf.js --network sepolia
+npx hardhat run scripts/TransferAll.js --network sepolia
+5. Deposit All NFT to Amoy:
+npx hardhat run scripts/Deposit.js --network sepolia
+6. Check Balance Of NFTs:
+npx hardhat run scripts/BalanceOf.js --network amoy
 
 ## Help
 Ensure you have sufficient ETH in your Sepolia account for deploying and interacting with the contract. For additional help, run:
